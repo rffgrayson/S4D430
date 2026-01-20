@@ -16,6 +16,8 @@ define view entity ZARF_C_EMPLOYEEQUERY
 //      BirthDate,
 //      EntryDate,
       DepartmentId,
+      _Deparment.Description    as DepartmentDescription,
+      _Deparment._Assistant.LastName as AssistantName,
 //      AnnualSalary,
 //      CurrencyCode,
 //      CreatedBy,
