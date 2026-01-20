@@ -14,6 +14,8 @@
 }
 define view entity ZARF_R_EMPLOYEE
   as select from zarfemploy
+  association[1..1] to ZARF_R_DEPARTMENT as _Deparment
+    on $projection.DepartmentId = _Deparment.Id
 {
   key employee_id           as EmployeeId,
       first_name            as FirstName,
@@ -29,5 +31,6 @@ define view entity ZARF_R_EMPLOYEE
       created_at            as CreatedAt,
       local_last_changed_by as LocalLastChangedBy,
       local_last_changed_at as LocalLastChangedAt,
-      last_changed_at       as LastChangedAt
+      last_changed_at       as LastChangedAt,
+      _Deparment
 }
