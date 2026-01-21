@@ -18,6 +18,11 @@ define view entity ZARF_C_EMPLOYEEQUERY
       DepartmentId,
       _Deparment.Description    as DepartmentDescription,
       _Deparment._Assistant.LastName as AssistantName,
+      case EmployeeId 
+        when _Deparment.HeadId then 'H'
+        when _Deparment.AssistantId then 'A'
+        else ''
+      end as EmployeeRole,
 //      AnnualSalary,
 //      CurrencyCode,
 //      CreatedBy,
