@@ -26,10 +26,19 @@ define view entity ZARF_C_EMPLOYEEQUERY
         when _Deparment.AssistantId then 'A'
         else ''
       end as EmployeeRole,
+      @EndUserText.label: 'Annual Salary'
+      @Semantics.amount.currencyCode: 'CurrencyCodeUSD'
+      currency_conversion( amount => AnnualSalary, 
+                             source_currency => CurrencyCode, 
+                             target_currency => $projection.CurrencyCodeUSD, 
+                             exchange_rate_date => $session.system_date 
+                           ) as AnnualSalaryConverted,
+                           
       @EndUserText.label: 'Monthly Salary'
-      @Semantics.amount.currencyCode: 'CurrencyCode'
-      cast (AnnualSalary as abap.fltp) / 12.0 as MonthlySalary, 
-      CurrencyCode,
+      @Semantics.amount.currencyCode: 'CurrencyCodeUSD'
+      cast ($projection.AnnualSalaryConverted as abap.fltp) / 12.0 as MonthlySalaryConverted, 
+//      CurrencyCode,
+        cast ( 'USD' as /dmo/currency_code) as CurrencyCodeUSD,
 //      AnnualSalary,
 //      CurrencyCode,
 //      CreatedBy,
