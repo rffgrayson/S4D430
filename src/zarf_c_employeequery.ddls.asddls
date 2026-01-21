@@ -23,6 +23,10 @@ define view entity ZARF_C_EMPLOYEEQUERY
         when _Deparment.AssistantId then 'A'
         else ''
       end as EmployeeRole,
+      @EndUserText.label: 'Monthly Salary'
+      @Semantics.amount.currencyCode: 'CurrencyCode'
+      cast (AnnualSalary as abap.fltp) / 12.0 as MonthlySalary, 
+      CurrencyCode,
 //      AnnualSalary,
 //      CurrencyCode,
 //      CreatedBy,
