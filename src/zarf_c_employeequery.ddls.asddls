@@ -17,7 +17,10 @@ define view entity ZARF_C_EMPLOYEEQUERY
 //      EntryDate,
       DepartmentId,
       _Deparment.Description    as DepartmentDescription,
-      _Deparment._Assistant.LastName as AssistantName,
+//      _Deparment._Assistant.LastName as AssistantName,
+        concat_with_space( _Deparment._Assistant.FirstName, 
+                            _Deparment._Assistant.LastName,
+                            1 ) as AssistantName,
       case EmployeeId 
         when _Deparment.HeadId then 'H'
         when _Deparment.AssistantId then 'A'
