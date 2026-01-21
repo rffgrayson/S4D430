@@ -37,6 +37,12 @@ define view entity ZARF_C_EMPLOYEEQUERY
 //      LocalLastChangedBy,
 //      LocalLastChangedAt,
 //      LastChangedAt,
+       division ( 
+                    dats_days_between( EntryDate, $session.system_date), 
+                    365, 
+                    1 
+                ) 
+        as CompanyAffiliation,
       /* Associations */
       _Deparment
 }
