@@ -11,6 +11,7 @@ define view entity ZARF_C_EMPLOYEEQUERYP
     with parameters 
         p_target_curr : /dmo/currency_code,
         @EndUserText.label: 'Date Of Evaluation'
+        @Environment.systemField: #SYSTEM_DATE
         p_date        : abap.dats 
   as select from ZARF_R_EMPLOYEE
 {
