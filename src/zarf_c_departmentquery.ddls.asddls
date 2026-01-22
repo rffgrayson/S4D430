@@ -11,18 +11,20 @@ define view entity zarf_c_departmentquery
   as select from ZARF_C_EMPLOYEEQUERYP( 
                                 p_target_curr: $parameters.p_target_curr, 
                                 p_date:$parameters.p_date  
-                                )
-{
-      DepartmentId,
-      DepartmentDescription,
-      avg ( CompanyAffiliation as abap.dec(11,1) ) as AverageAffiliation,
+                                ) as e  
+                right outer join ZARF_R_DEPARTMENT as d
+                on e.DepartmentId = d.Id
+{   
+      d.Id,
+      d.Description,
+      avg ( e.CompanyAffiliation as abap.dec(11,1) ) as AverageAffiliation,
       @Semantics.amount.currencyCode: 'currencyCode'
-      sum(AnnualSalaryConverted) as TotalSalary,
-      CurrencyCode
+      sum(e.AnnualSalaryConverted) as TotalSalary,
+      e.CurrencyCode
       
 }
 group by
-    DepartmentId,
-    DepartmentDescription,
-    CurrencyCode
+    d.Id,
+    d.Description,
+    e.CurrencyCode
 
