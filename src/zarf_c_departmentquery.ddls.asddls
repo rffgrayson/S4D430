@@ -3,8 +3,18 @@
 @EndUserText.label: 'Department (Query)'
 @Metadata.ignorePropagatedAnnotations: true
 define view entity zarf_c_departmentquery
-  as select distinct from ZARF_C_EMPLOYEEQUERY
+  as select from ZARF_C_EMPLOYEEQUERY
 {
       DepartmentId,
-      DepartmentDescription
+      DepartmentDescription,
+      avg ( CompanyAffiliation as abap.dec(11,1) ) as AverageAffiliation,
+      @Semantics.amount.currencyCode: 'currencyCodeUSD'
+      sum(AnnualSalaryConverted) as TotalSalary,
+      CurrencyCodeUSD
+      
 }
+group by
+    DepartmentId,
+    DepartmentDescription,
+    CurrencyCodeUSD
+
