@@ -1,0 +1,7 @@
+@EndUserText.label: 'Department Query (Access Control)'
+@MappingRole: true
+define role ZARF_C_DEPARTMENTQUERY {
+  grant select on ZARF_C_DepartmentQuery
+  where inheriting conditions 
+   from entity ZARF_R_Department;
+}
