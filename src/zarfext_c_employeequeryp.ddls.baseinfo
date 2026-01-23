@@ -8,13 +8,9 @@
 "ZARF_R_EMPLOYEE"
 ],
 "ASSOCIATED":
-[
-"ZARF_R_DEPARTMENT"
-],
+[],
 "BASE":
-[
-"ZARF_R_EMPLOYEE"
-],
+[],
 "ANNO_REF":
 [],
 "SCALAR_FUNCTION":
