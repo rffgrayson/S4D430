@@ -2,7 +2,9 @@
 //@AbapCatalog.viewEnhancementCategory: [#NONE]
 @AbapCatalog: {
         dataMaintenance: #RESTRICTED,
-        viewEnhancementCategory: [ #NONE ]
+        viewEnhancementCategory: [ #PROJECTION_LIST ],
+        extensibility.dataSources: [ 'Employee' ],
+        extensibility.elementSuffix: 'ZEM'
 }
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Employee (Entity)'
@@ -13,7 +15,7 @@
     dataClass: #MASTER
 }
 define view entity ZARF_R_EMPLOYEE
-  as select from zarfemploy
+  as select from zarfemploy as Employee
   association[1..1] to ZARF_R_DEPARTMENT as _Deparment
     on $projection.DepartmentId = _Deparment.Id
 {
