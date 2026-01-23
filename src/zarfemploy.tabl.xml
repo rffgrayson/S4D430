@@ -97,6 +97,14 @@
      <DDTEXT>Admin Fields (users and timestamps)</DDTEXT>
      <COMPTYPE>S</COMPTYPE>
     </DD03P>
+    <DD03P>
+     <FIELDNAME>.INCLU--AP</FIELDNAME>
+     <ADMINFIELD>0</ADMINFIELD>
+     <PRECFIELD>ZARF_S_EXT_EMPLOYEE</PRECFIELD>
+     <MASK>      S</MASK>
+     <DDTEXT>Employee (Append Structure)</DDTEXT>
+     <COMPTYPE>S</COMPTYPE>
+    </DD03P>
    </DD03P_TABLE>
    <DD05M_TABLE>
     <DD05M>
