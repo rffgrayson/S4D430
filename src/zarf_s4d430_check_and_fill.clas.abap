@@ -15,11 +15,11 @@ CLASS ZARF_S4D430_CHECK_AND_FILL IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
 
      TYPES t_version TYPE lcl_generator=>t_version.
-
-     CONSTANTS c_version TYPE t_version VALUE lcl_generator=>with_relationships.
+*
+*     CONSTANTS c_version TYPE t_version VALUE lcl_generator=>with_relationships.
 *    CONSTANTS c_version TYPE t_version VALUE lcl_generator=>employee_table_only.
 *    CONSTANTS c_version TYPE t_version VALUE lcl_generator=>with_relationships.
-*    CONSTANTS c_version TYPE t_version VALUE lcl_generator=>with_extensions.
+    CONSTANTS c_version TYPE t_version VALUE lcl_generator=>with_extensions.
 *
     CONSTANTS c_employ_table  TYPE tabname VALUE 'ZARFEMPLOY'.
     CONSTANTS c_depment_table TYPE tabname VALUE 'ZARFDEPARTMENT'.
