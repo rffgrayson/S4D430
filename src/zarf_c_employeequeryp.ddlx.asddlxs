@@ -1,0 +1,10 @@
+@Metadata.layer: #CORE
+annotate view ZARF_C_EMPLOYEEQUERYP with parameters
+        @EndUserText.label: 'Date Of Evaluation'
+p_date
+{
+      @EndUserText.label: 'Annual Salary'
+AnnualSalaryConverted;
+      @EndUserText.label: 'Monthly Salary'
+MonthlySalaryConverted;
+}

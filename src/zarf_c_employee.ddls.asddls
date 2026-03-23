@@ -23,5 +23,7 @@ define view entity ZARF_C_EMPLOYEE
       CreatedAt,
       LocalLastChangedBy,
       LocalLastChangedAt,
-      LastChangedAt
+      LastChangedAt 
 }
+
+

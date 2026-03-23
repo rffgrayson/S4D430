@@ -12,10 +12,11 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
+@Metadata.allowExtensions: true
 define view entity ZARF_C_EMPLOYEEQUERYP
     with parameters 
         p_target_curr : /dmo/currency_code,
-        @EndUserText.label: 'Date Of Evaluation'
+        
         @Environment.systemField: #SYSTEM_DATE
         p_date        : abap.dats 
   as select from ZARF_R_EMPLOYEE as Employee
@@ -36,7 +37,7 @@ define view entity ZARF_C_EMPLOYEEQUERYP
         when _Deparment.AssistantId then 'A'
         else ''
       end as EmployeeRole,
-      @EndUserText.label: 'Annual Salary'
+      
       @Semantics.amount.currencyCode: 'CurrencyCode'
       currency_conversion( amount => AnnualSalary, 
                              source_currency => CurrencyCode, 
@@ -44,7 +45,7 @@ define view entity ZARF_C_EMPLOYEEQUERYP
                              exchange_rate_date => $parameters.p_date
                            ) as AnnualSalaryConverted,
                            
-      @EndUserText.label: 'Monthly Salary'
+      
       @Semantics.amount.currencyCode: 'CurrencyCode'
       cast ($projection.AnnualSalaryConverted as abap.fltp) / 12.0 as MonthlySalaryConverted, 
 //      CurrencyCode,
